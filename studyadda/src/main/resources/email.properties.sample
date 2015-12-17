@@ -1,7 +1,0 @@
-################### JavaMail Configuration ##########################
-smtp.host=smtp.gmail.com
-smtp.port=587
-smtp.protocol=smtps
-smtp.username=ankurmahajan009@gmail.com
-smtp.password=clashofclan
-support.email=ankurmahajan009@gmail.com
