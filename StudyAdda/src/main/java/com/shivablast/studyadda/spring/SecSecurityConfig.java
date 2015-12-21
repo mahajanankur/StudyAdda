@@ -16,9 +16,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
+import com.shivablast.studyadda.security.MyUserDetailsService;
+
 @Configuration
-@ComponentScan(basePackages = { "com.shivablast.studyadda.security" })
 @EnableWebSecurity
+// @ComponentScan(basePackages = { "com.shivablast.studyadda.security" })
+@ComponentScan(basePackageClasses = MyUserDetailsService.class)
 public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired

@@ -31,7 +31,6 @@ public class AppConfig {
         final JavaMailSenderImpl mailSenderImpl = new JavaMailSenderImpl();
         mailSenderImpl.setHost(env.getProperty("smtp.host"));
         mailSenderImpl.setPort(env.getProperty("smtp.port", Integer.class));
-        mailSenderImpl.setProtocol(env.getProperty("smtp.protocol"));
         mailSenderImpl.setUsername(env.getProperty("smtp.username"));
         mailSenderImpl.setPassword(env.getProperty("smtp.password"));
         final Properties javaMailProps = new Properties();

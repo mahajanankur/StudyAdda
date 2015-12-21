@@ -6,6 +6,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ViewResolver;
@@ -23,8 +24,9 @@ import com.shivablast.studyadda.validation.EmailValidator;
 import com.shivablast.studyadda.validation.PasswordMatchesValidator;
 
 @Configuration
-@ComponentScan(basePackages = { "com.shivablast.studyadda.web" })
+@ComponentScan(basePackages = { "com.shivablast.studyadda" })
 @EnableWebMvc
+@Import({ SecSecurityConfig.class })
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
 	public MvcConfig() {
