@@ -1,8 +1,6 @@
 package com.shivablast.studyadda.spring;
 
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -16,7 +14,6 @@ import com.shivablast.studyadda.persistence.dao.RoleRepository;
 import com.shivablast.studyadda.persistence.dao.UserRepository;
 import com.shivablast.studyadda.persistence.model.Privilege;
 import com.shivablast.studyadda.persistence.model.Role;
-import com.shivablast.studyadda.persistence.model.User;
 
 @Component
 public class SetupDataLoader implements
@@ -44,27 +41,24 @@ public class SetupDataLoader implements
 		if (alreadySetup) {
 			return;
 		}
-
-		// == create initial privileges
-		final Privilege readPrivilege = createPrivilegeIfNotFound("READ_PRIVILEGE");
-		final Privilege writePrivilege = createPrivilegeIfNotFound("WRITE_PRIVILEGE");
-
-		// == create initial roles
-		final List<Privilege> adminPrivileges = Arrays.asList(readPrivilege,
-				writePrivilege);
-		createRoleIfNotFound("ROLE_ADMIN", adminPrivileges);
-		createRoleIfNotFound("ROLE_USER", Arrays.asList(readPrivilege));
-
-		final Role adminRole = roleRepository.findByName("ROLE_ADMIN");
-		final User user = new User();
-		user.setFirstName("Test");
-		user.setLastName("Test");
-		user.setPassword(passwordEncoder.encode("test"));
-		user.setEmail("test@test.com");
-		user.setRoles(Arrays.asList(adminRole));
-		user.setEnabled(true);
-		userRepository.save(user);
-
+		/*
+		 * // == create initial privileges final Privilege readPrivilege =
+		 * createPrivilegeIfNotFound("READ_PRIVILEGE"); final Privilege
+		 * writePrivilege = createPrivilegeIfNotFound("WRITE_PRIVILEGE");
+		 * 
+		 * // == create initial roles final List<Privilege> adminPrivileges =
+		 * Arrays.asList(readPrivilege, writePrivilege);
+		 * createRoleIfNotFound("ROLE_ADMIN", adminPrivileges);
+		 * createRoleIfNotFound("ROLE_USER", Arrays.asList(readPrivilege));
+		 * 
+		 * final Role adminRole = roleRepository.findByName("ROLE_ADMIN"); final
+		 * User user = new User(); user.setFirstName("Test");
+		 * user.setLastName("Test");
+		 * user.setPassword(passwordEncoder.encode("test"));
+		 * user.setEmail("test@test.com");
+		 * user.setRoles(Arrays.asList(adminRole)); user.setEnabled(true);
+		 * userRepository.save(user);
+		 */
 		alreadySetup = true;
 	}
 

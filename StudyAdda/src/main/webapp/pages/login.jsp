@@ -80,7 +80,7 @@ ${SPRING_SECURITY_LAST_EXCEPTION}
             <a class="btn btn-default" href="<c:url value="registration.html" />"><spring:message
                     code="label.form.loginSignUp"></spring:message></a>
             <br><br>
-            <a class="btn btn-default" href="<c:url value="/forgetPassword.html" />"><spring:message
+            <a class="btn btn-default" href="<c:url value="changePassword.html" />"><spring:message
               code="message.resetPassword"></spring:message></a>
         </div>
     </div>

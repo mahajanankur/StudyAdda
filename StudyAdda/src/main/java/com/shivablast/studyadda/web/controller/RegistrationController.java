@@ -79,7 +79,10 @@ public class RegistrationController {
 		if (registered == null) {
 			throw new UserAlreadyExistException();
 		}
-		final String appUrl = "http://" + request.getServerName() + ":"
+		// 192.168.22.159
+		// final String appUrl = "http://" + request.getServerName() + ":"
+		// + request.getServerPort() + request.getContextPath();
+		final String appUrl = "http://" + "192.168.22.159" + ":"
 				+ request.getServerPort() + request.getContextPath();
 		eventPublisher.publishEvent(new OnRegistrationCompleteEvent(registered,
 				request.getLocale(), appUrl));
